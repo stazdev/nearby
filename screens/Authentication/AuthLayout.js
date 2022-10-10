@@ -1,27 +1,27 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import React from "react";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { LogoSmall } from "../../assets/images";
 const AuthLayout = ({ title, titleContainerStyle, children }) => {
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         paddingVertical: SIZES.padding * 9,
-        paddingHorizontal: SIZES.padding,
+        paddingHorizontal: SIZES.padding * 2.4,
         backgroundColor: COLORS.white,
       }}
     >
       <KeyboardAwareScrollView
         keyboardDismissMode="on-drag"
-        contentContainerStyle={{ flex: 1, paddingHorizontal: SIZES.padding }}
+        showsVerticalScrollIndicator={false}
       >
         {/* app icon */}
         <View style={{ alignItems: "center" }}>
           <LogoSmall />
         </View>
-        {/* title/ subtitle */}
+        {/* title */}
         <View
           style={{
             marginTop: SIZES.padding * 3.6,
@@ -37,7 +37,7 @@ const AuthLayout = ({ title, titleContainerStyle, children }) => {
         {/* content */}
         {children}
       </KeyboardAwareScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

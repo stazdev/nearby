@@ -4,20 +4,35 @@ import { COLORS, FONTS, SIZES } from "../../constants";
 import { FormInput, TextButton } from "../../components";
 import AuthLayout from "./AuthLayout";
 
-const Signin = ({ navigation }) => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [number, setNumber] = useState("");
 
   return (
-    <AuthLayout title={"Welcome Back!"}>
+    <AuthLayout title={"Create Account"}>
       <View style={{ flex: 1, marginTop: SIZES.padding * 3 }}>
         <FormInput
-          keyboardType="email-address"
+          keyboardType="number"
           autoCompleteType="email"
           placeholder={"E-mail"}
           value={email}
           onChange={(value) => {
             setEmail(value);
+          }}
+        />
+        <FormInput
+          keyboardType="number-pad"
+          autoCompleteType="number"
+          value={number}
+          prependComponent={
+            <View style={{ marginRight: 5 }}>
+              <Text>+234</Text>
+            </View>
+          }
+          containerStyle={{ marginTop: SIZES.radius * 2 }}
+          onChange={(value) => {
+            setNumber(value);
           }}
         />
         <FormInput
@@ -29,35 +44,16 @@ const Signin = ({ navigation }) => {
             setPassword(value);
           }}
         />
-        <View
-          style={{
-            justifyContent: "flex-end",
-          }}
-        >
-          <TextButton
-            label={"Forgot Password?"}
-            buttonContainerStyle={{
-              backgroundColor: null,
-              alignItems: "flex-end",
-              marginTop: SIZES.base * 2,
-            }}
-            labelStyle={{
-              color: COLORS.grey2,
-              ...FONTS.h1,
-              fontSize: 14,
-            }}
-            onPress={() => console.log("hello")}
-          />
-        </View>
       </View>
 
       <View>
         <TextButton
-          label={"Login"}
+          label={"Create Account"}
           buttonContainerStyle={{
             alignItems: "center",
             justifyContent: "center",
             borderRadius: SIZES.radius,
+            marginTop: SIZES.padding * 3,
           }}
           labelStyle={{
             color: COLORS.white,
@@ -66,30 +62,11 @@ const Signin = ({ navigation }) => {
           }}
           onPress={() => console.log("hello")}
         />
-
-        <TextButton
-          label={"Create Account"}
-          buttonContainerStyle={{
-            backgroundColor: null,
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: SIZES.radius,
-            borderWidth: 1,
-            borderColor: COLORS.primary,
-            marginTop: SIZES.padding * 2,
-          }}
-          labelStyle={{
-            color: COLORS.primary,
-            ...FONTS.h1,
-            fontSize: 14,
-          }}
-          onPress={() => navigation.navigate("Signup")}
-        />
       </View>
     </AuthLayout>
   );
 };
 
-export default Signin;
+export default Signup;
 
 const styles = StyleSheet.create({});

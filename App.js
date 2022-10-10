@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { COLORS } from "./constants";
 
-import { Signin } from "./screens";
+import { Signin, Signup } from "./screens";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +28,7 @@ export default function App() {
         initialRouteName={"Signin"}
       >
         <Stack.Screen name="Signin" component={Signin} />
+        <Stack.Screen name="Signup" component={Signup} />
       </Stack.Navigator>
     </NavigationContainer>
   );
