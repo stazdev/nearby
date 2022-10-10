@@ -9,7 +9,7 @@ export const COLORS = {
 
   primary: "#003049",
   grey1: "#f8f8f8",
-  grey2: "b4b4b4",
+  grey2: "#b4b4b4",
   green: "#04ca5f",
   red: "#fc6949",
   yellow: "#fcbf49",
