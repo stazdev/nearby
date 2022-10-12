@@ -1,35 +1,47 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
-import { createStackNavigator } from "@react-navigation/stack";
+import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Map, Signin, Signup } from "./screens";
+import CustomDrawer from "./navigation/CustomDrawer";
 import { COLORS } from "./constants";
+import { TabProvider } from "./context/TabContext";
 
-import { Signin, Signup } from "./screens";
-
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [loaded] = useFonts({
     "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Inter-Bold": require("./assets/fonts/Inter-Bold.ttf"),
     "Inter-SemiBold": require("./assets/fonts/Inter-SemiBold.ttf"),
+    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
   });
 
   if (!loaded) {
     return null;
   }
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        initialRouteName={"Signin"}
-      >
-        <Stack.Screen name="Signin" component={Signin} />
-        <Stack.Screen name="Signup" component={Signup} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <TabProvider>
+      <NavigationContainer>
+        <StatusBar StatusBarStyle="auto" />
+        <Drawer.Navigator
+          screenOptions={{
+            headerShown: false,
+            drawerStyle: {
+              backgroundColor: COLORS.white,
+            },
+          }}
+          drawerContent={({ navigation }) => (
+            <CustomDrawer navigation={navigation} />
+          )}
+          initialRouteName="Signin"
+        >
+          <Drawer.Screen name="Signin" component={Signin} />
+          <Drawer.Screen name="Signup" component={Signup} />
+          <Drawer.Screen name="Map" component={Map} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </TabProvider>
   );
 }

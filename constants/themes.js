@@ -10,6 +10,7 @@ export const COLORS = {
   primary: "#003049",
   grey1: "#f8f8f8",
   grey2: "#b4b4b4",
+  grey3: "#ededed",
   green: "#04ca5f",
   red: "#fc6949",
   yellow: "#fcbf49",
@@ -26,7 +27,7 @@ export const SIZES = {
   h2: RFValue(24),
   h3: RFValue(18),
   h4: RFValue(16),
-  h5: RFValue(10),
+  h5: RFValue(14),
   body1: RFValue(24),
   body2: RFValue(18),
   body3: RFValue(16),
@@ -60,6 +61,11 @@ export const FONTS = {
     fontFamily: "Inter-SemiBold",
     fontSize: SIZES.h4,
     lineHeight: 19.2,
+  },
+  h5: {
+    fontFamily: "Inter-Regular",
+    fontSize: SIZES.h5,
+    lineHeight: 23.3,
   },
 };
 

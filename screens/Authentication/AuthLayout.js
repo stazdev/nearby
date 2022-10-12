@@ -8,7 +8,6 @@ const AuthLayout = ({ title, titleContainerStyle, children }) => {
     <SafeAreaView
       style={{
         flex: 1,
-        paddingVertical: SIZES.padding * 9,
         paddingHorizontal: SIZES.padding * 2.4,
         backgroundColor: COLORS.white,
       }}
@@ -16,6 +15,9 @@ const AuthLayout = ({ title, titleContainerStyle, children }) => {
       <KeyboardAwareScrollView
         keyboardDismissMode="on-drag"
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingVertical: SIZES.padding * 9,
+        }}
       >
         {/* app icon */}
         <View style={{ alignItems: "center" }}>

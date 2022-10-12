@@ -46,7 +46,7 @@ const Signin = ({ navigation }) => {
               ...FONTS.h1,
               fontSize: 14,
             }}
-            onPress={() => console.log("hello")}
+            onPress={() => navigation.toggleDrawer()}
           />
         </View>
       </View>
@@ -64,7 +64,7 @@ const Signin = ({ navigation }) => {
             ...FONTS.h1,
             fontSize: 14,
           }}
-          onPress={() => console.log("hello")}
+          onPress={() => navigation.navigate("Map")}
         />
 
         <TextButton
