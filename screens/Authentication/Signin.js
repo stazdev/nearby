@@ -46,7 +46,7 @@ const Signin = ({ navigation }) => {
               ...FONTS.h1,
               fontSize: 14,
             }}
-            onPress={() => navigation.toggleDrawer()}
+            onPress={() => console.log("forgot password")}
           />
         </View>
       </View>

@@ -7,7 +7,14 @@ import Discount from "./Discount";
 import Calling from "./Calling";
 import Logout from "./Logout";
 import Category from "./Category";
-
+import Location from "./Location";
+import LocationGrey from "./LocationGrey";
+import ProfileGrey from "./ProfileGrey";
+import Menu from "./Menu";
+import ChevronRight from "./ChevronRight";
+import ArrowLeft from "./ArrowLeft";
+const locationPin = require("../images/location_pin.png");
+const navigator = require("../images/navigator.png");
 export {
   Close,
   Star,
@@ -18,4 +25,12 @@ export {
   Calling,
   Logout,
   Category,
+  Location,
+  LocationGrey,
+  Menu,
+  ChevronRight,
+  ArrowLeft,
+  ProfileGrey,
+  locationPin,
+  navigator,
 };

@@ -9,12 +9,14 @@ import {
   TouchableOpacity,
   Platform,
   StatusBar,
+  FlatList,
 } from "react-native";
 import {
+  ArrowLeft,
+  ChevronRight,
   Location,
   LocationGrey,
   locationPin,
-  Menu,
   navigator,
   ProfileGrey,
 } from "../../assets/icons";
@@ -23,10 +25,44 @@ import { useState } from "react";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { utils } from "../../utils";
 import { FormInput, IconButton, TextButton } from "../../components";
+import { EcoCar, PremiumCar, VisaGreen } from "../../assets/images";
 
-export default function Map({ navigation }) {
+export default function Cars({ navigation }) {
   const mapView = useRef();
-
+  const cars = [
+    {
+      id: 1,
+      name: "BMW X5",
+      type: "Premium",
+      image: <PremiumCar />,
+      price: 1.2,
+      seat: 5,
+    },
+    {
+      id: 2,
+      name: "Nissan Leaf",
+      type: "Eco",
+      image: <EcoCar />,
+      price: 1,
+      seat: 4,
+    },
+    {
+      id: 3,
+      name: "BMW X5",
+      type: "Premium",
+      image: <PremiumCar />,
+      price: 1.2,
+      seat: 5,
+    },
+    {
+      id: 4,
+      name: "Nissan Leaf",
+      type: "Eco",
+      image: <EcoCar />,
+      price: 1,
+      seat: 4,
+    },
+  ];
   const [region, setRegion] = useState(null);
   const [toLoc, setToLoc] = useState(null);
   const [fromLoc, setFromLoc] = useState(null);
@@ -121,14 +157,14 @@ export default function Map({ navigation }) {
     return (
       <>
         <IconButton
-          icon={<Menu />}
+          icon={<ArrowLeft />}
           containerStyle={{
             position: "absolute",
             top: StatusBar.currentHeight,
             left: SIZES.padding * 2.4,
           }}
           onPress={() => {
-            navigation.openDrawer();
+            navigation.navigate("Map");
           }}
         />
       </>
@@ -146,7 +182,6 @@ export default function Map({ navigation }) {
       >
         <View
           style={{
-            padding: SIZES.padding * 2.4,
             borderTopLeftRadius: SIZES.padding * 2.4,
             borderTopRightRadius: SIZES.padding * 2.4,
             backgroundColor: COLORS.white,
@@ -157,46 +192,92 @@ export default function Map({ navigation }) {
               color: COLORS.primary,
               ...FONTS.h2,
               textAlign: "center",
-              paddingBottom: SIZES.padding * 2,
+              paddingVertical: SIZES.padding * 2,
             }}
           >
-            Where are you?
+            Cars in your area
           </Text>
-          <View>
-            <FormInput
-              placeholder={"Your location"}
-              inputStyle={{ ...FONTS.h4, marginRight: SIZES.base }}
-              prependComponent={<LocationGrey />}
-              value={loc}
-              onChange={(value) => {
-                setLoc(value);
-              }}
+          <View style={{ paddingBottom: 20 }}>
+            <FlatList
+              data={cars}
+              keyExtractor={(item) => `${item.id}`}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item, index }) => (
+                <View
+                  style={{
+                    width: 142,
+                    backgroundColor: COLORS.grey1,
+                    marginLeft: index == 0 ? SIZES.padding : 18,
+                    marginRight: index == cars.length - 1 ? SIZES.padding : 0,
+                    borderRadius: SIZES.radius,
+                    paddingHorizontal: 16.5,
+                    paddingVertical: SIZES.padding * 2,
+                    position: "relative",
+                  }}
+                >
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      color: COLORS.primary,
+                      ...FONTS.h4,
+                    }}
+                  >
+                    {item.name}
+                  </Text>
+                  <View
+                    style={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginVertical: SIZES.padding * 1.2,
+                    }}
+                  >
+                    {item.image}
+                  </View>
+                  <Text style={{ textAlign: "center", ...FONTS.h5 }}>
+                    {item.price} €/min
+                  </Text>
+                </View>
+              )}
             />
-            <FormInput
-              placeholder={"Number of people"}
-              inputStyle={{ ...FONTS.h4, marginRight: SIZES.base }}
-              containerStyle={{ marginTop: SIZES.radius * 2 }}
-              prependComponent={<ProfileGrey />}
-              value={people}
-              onChange={(value) => {
-                setPeople(value);
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => console.log("wallet")}
+              style={{
+                backgroundColor: COLORS.grey1,
+                height: 60,
+                flexDirection: "row",
+                paddingHorizontal: 19,
+                alignItems: "center",
+                justifyContent: "space-between",
+                borderRadius: SIZES.radius,
+                marginTop: SIZES.radius * 2,
+                marginHorizontal: SIZES.padding * 2.4,
               }}
-            />
-
+            >
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <VisaGreen />
+                <Text style={{ ...FONTS.h5, marginLeft: SIZES.padding }}>
+                  ****1234
+                </Text>
+              </View>
+              <ChevronRight />
+            </TouchableOpacity>
             <TextButton
-              label={"Search cars"}
+              label={"Go next"}
               buttonContainerStyle={{
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: SIZES.radius,
                 marginTop: SIZES.radius * 2,
+                marginHorizontal: SIZES.padding * 2.4,
               }}
               labelStyle={{
                 color: COLORS.white,
                 ...FONTS.h1,
                 fontSize: 14,
               }}
-              onPress={() => navigation.navigate("Cars")}
+              onPress={() => navigation.navigate("Map")}
             />
           </View>
         </View>
