@@ -11,6 +11,7 @@ import {
   SelectedCar,
   RidePay,
   PaymentConfirmation,
+  Messages,
 } from "./screens";
 import CustomDrawer from "./navigation/CustomDrawer";
 import { COLORS } from "./constants";
@@ -57,6 +58,7 @@ export default function App() {
             name="PaymentConfirmation"
             component={PaymentConfirmation}
           />
+          <Drawer.Screen name="Messages" component={Messages} />
         </Drawer.Navigator>
       </NavigationContainer>
     </TabProvider>

@@ -97,7 +97,7 @@ function CustomDrawer({ navigation }) {
           icon={<Chat />}
           isFocused={selectedTab == "Messages"}
           onPress={() => {
-            setSelectedTab("Messages"), navigation.navigate("Map");
+            setSelectedTab("Messages"), navigation.navigate("Messages");
           }}
         />
         <CustomDrawerItem

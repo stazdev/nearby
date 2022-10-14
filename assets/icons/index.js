@@ -4,6 +4,7 @@ import Chat from "./Chat";
 import Bookmark from "./Bookmark";
 import Wallet from "./Wallet";
 import Discount from "./Discount";
+import DiscountWhite from "./DiscountWhite";
 import Calling from "./Calling";
 import Logout from "./Logout";
 import Category from "./Category";
@@ -20,6 +21,7 @@ import ArrowCircle from "./ArrowCircle";
 import WalletWhite from "./WalletWhite";
 import DistanceWhite from "./DistanceWhite";
 import CalendarWhite from "./CalendarWhite";
+import Commercial from "./Commercial";
 const locationPin = require("../images/location_pin.png");
 const navigator = require("../images/navigator.png");
 export {
@@ -29,6 +31,7 @@ export {
   Bookmark,
   Wallet,
   Discount,
+  DiscountWhite,
   Calling,
   Logout,
   Category,
@@ -45,6 +48,7 @@ export {
   WalletWhite,
   DistanceWhite,
   CalendarWhite,
+  Commercial,
   locationPin,
   navigator,
 };

@@ -5,5 +5,15 @@ import Cars from "./Map/Cars";
 import SelectedCar from "./Map/SelectedCar";
 import RidePay from "./Map/RidePay";
 import PaymentConfirmation from "./Map/PaymentConfirmation";
+import Messages from "./Messages/Messages";
 
-export { Signin, Signup, Map, Cars, SelectedCar, RidePay, PaymentConfirmation };
+export {
+  Signin,
+  Signup,
+  Map,
+  Cars,
+  SelectedCar,
+  RidePay,
+  PaymentConfirmation,
+  Messages,
+};
