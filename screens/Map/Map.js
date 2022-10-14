@@ -22,10 +22,16 @@ import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { utils } from "../../utils";
-import { FormInput, IconButton, TextButton } from "../../components";
+import {
+  CustomBottomSheet,
+  FormInput,
+  IconButton,
+  TextButton,
+} from "../../components";
 
 export default function Map({ navigation }) {
   const mapView = useRef();
+  const snapPoints = React.useMemo(() => ["15%", "30%", "45%"], []);
 
   const [region, setRegion] = useState(null);
   const [toLoc, setToLoc] = useState(null);
@@ -137,13 +143,7 @@ export default function Map({ navigation }) {
 
   function renderSearch() {
     return (
-      <View
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-        }}
-      >
+      <CustomBottomSheet snapPoints={snapPoints}>
         <View
           style={{
             padding: SIZES.padding * 2.4,
@@ -200,7 +200,7 @@ export default function Map({ navigation }) {
             />
           </View>
         </View>
-      </View>
+      </CustomBottomSheet>
     );
   }
   return (

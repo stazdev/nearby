@@ -3,10 +3,19 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Map, Signin, Signup, Cars } from "./screens";
+import {
+  Map,
+  Signin,
+  Signup,
+  Cars,
+  SelectedCar,
+  RidePay,
+  PaymentConfirmation,
+} from "./screens";
 import CustomDrawer from "./navigation/CustomDrawer";
 import { COLORS } from "./constants";
 import { TabProvider } from "./context/TabContext";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Drawer = createDrawerNavigator();
 
@@ -42,6 +51,12 @@ export default function App() {
           <Drawer.Screen name="Signup" component={Signup} />
           <Drawer.Screen name="Map" component={Map} />
           <Drawer.Screen name="Cars" component={Cars} />
+          <Drawer.Screen name="SelectedCar" component={SelectedCar} />
+          <Drawer.Screen name="RidePay" component={RidePay} />
+          <Drawer.Screen
+            name="PaymentConfirmation"
+            component={PaymentConfirmation}
+          />
         </Drawer.Navigator>
       </NavigationContainer>
     </TabProvider>

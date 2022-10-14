@@ -17,60 +17,34 @@ import {
   Location,
   LocationGrey,
   locationPin,
+  LocationWhite,
   navigator,
   ProfileGrey,
+  ProfileWhite,
 } from "../../assets/icons";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { utils } from "../../utils";
-import { FormInput, IconButton, TextButton } from "../../components";
+import {
+  CouponCard,
+  CustomBottomSheet,
+  FormInput,
+  IconButton,
+  TextButton,
+  TextIcon,
+} from "../../components";
 import { EcoCar, PremiumCar, VisaGreen } from "../../assets/images";
 
-export default function Cars({ navigation }) {
+export default function SelectedCar({ navigation }) {
   const mapView = useRef();
-  const cars = [
-    {
-      id: 1,
-      name: "BMW X5",
-      type: "Premium",
-      image: <PremiumCar />,
-      price: 1.2,
-      seat: 5,
-    },
-    {
-      id: 2,
-      name: "Nissan Leaf",
-      type: "Eco",
-      image: <EcoCar />,
-      price: 1,
-      seat: 4,
-    },
-    {
-      id: 3,
-      name: "BMW X5",
-      type: "Premium",
-      image: <PremiumCar />,
-      price: 1.2,
-      seat: 5,
-    },
-    {
-      id: 4,
-      name: "Nissan Leaf",
-      type: "Eco",
-      image: <EcoCar />,
-      price: 1,
-      seat: 4,
-    },
-  ];
+  const snapPoints = React.useMemo(() => ["15%", "30%", "45%", "60%"], []);
   const [region, setRegion] = useState(null);
   const [toLoc, setToLoc] = useState(null);
   const [fromLoc, setFromLoc] = useState(null);
   const [angle, setAngle] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [duration, setDuration] = useState("");
-  const [loc, setLoc] = useState("");
-  const [people, setPeople] = useState(0);
 
   useEffect(() => {
     let initialRegion = {
@@ -164,7 +138,7 @@ export default function Cars({ navigation }) {
             left: SIZES.padding * 2.4,
           }}
           onPress={() => {
-            navigation.navigate("Map");
+            navigation.navigate("Cars");
           }}
         />
       </>
@@ -173,115 +147,97 @@ export default function Cars({ navigation }) {
 
   function renderSearch() {
     return (
-      <View
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-        }}
-      >
+      <CustomBottomSheet snapPoints={snapPoints}>
         <View
           style={{
             borderTopLeftRadius: SIZES.padding * 2.4,
             borderTopRightRadius: SIZES.padding * 2.4,
             backgroundColor: COLORS.white,
+            padding: SIZES.padding * 2.4,
           }}
         >
-          <Text
-            style={{
-              color: COLORS.primary,
-              ...FONTS.h2,
-              textAlign: "center",
-              paddingVertical: SIZES.padding * 2,
-            }}
-          >
-            Cars in your area
-          </Text>
-          <View style={{ paddingBottom: 20 }}>
-            <FlatList
-              data={cars}
-              keyExtractor={(item) => `${item.id}`}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item, index }) => (
-                <View
-                  style={{
-                    width: 142,
-                    backgroundColor: COLORS.grey1,
-                    marginLeft: index == 0 ? SIZES.padding : 18,
-                    marginRight: index == cars.length - 1 ? SIZES.padding : 0,
-                    borderRadius: SIZES.radius,
-                    paddingHorizontal: 16.5,
-                    paddingVertical: SIZES.padding * 2,
-                    position: "relative",
-                  }}
-                >
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      color: COLORS.primary,
-                      ...FONTS.h4,
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginVertical: SIZES.padding * 1.2,
-                    }}
-                  >
-                    {item.image}
-                  </View>
-                  <Text style={{ textAlign: "center", ...FONTS.h5 }}>
-                    {item.price} €/min
-                  </Text>
-                </View>
-              )}
-            />
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => console.log("wallet")}
+          <CouponCard>
+            <View
               style={{
-                backgroundColor: COLORS.grey1,
-                height: 60,
                 flexDirection: "row",
-                paddingHorizontal: 19,
-                alignItems: "center",
                 justifyContent: "space-between",
-                borderRadius: SIZES.radius,
-                marginTop: SIZES.radius * 2,
-                marginHorizontal: SIZES.padding * 2.4,
+                alignItems: "center",
               }}
             >
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <VisaGreen />
-                <Text style={{ ...FONTS.h5, marginLeft: SIZES.padding }}>
-                  ****1234
+                <PremiumCar />
+                <View style={{ marginLeft: SIZES.padding }}>
+                  <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>
+                    BMW X5
+                  </Text>
+                  <Text style={{ color: COLORS.grey4, ...FONTS.h5 }}>
+                    WB9008U
+                  </Text>
+                </View>
+              </View>
+              <Text style={{ color: COLORS.green, ...FONTS.h5 }}>
+                1.2 €/min
+              </Text>
+            </View>
+
+            <View
+              style={{
+                backgroundColor: COLORS.grey5,
+                height: 1,
+                marginVertical: SIZES.padding * 2,
+              }}
+            >
+              <View
+                style={{
+                  justifyContent: "center",
+                }}
+              >
+                <Text
+                  style={{
+                    position: "absolute",
+                    left: "30%",
+                    textAlign: "center",
+                    backgroundColor: COLORS.grey1,
+                    color: COLORS.grey4,
+                    ...FONTS.h6,
+                  }}
+                >
+                  Ride Information
                 </Text>
               </View>
-              <ChevronRight />
-            </TouchableOpacity>
-            <TextButton
-              label={"Go next"}
-              buttonContainerStyle={{
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: SIZES.radius,
-                marginTop: SIZES.radius * 2,
-                marginHorizontal: SIZES.padding * 2.4,
-              }}
-              labelStyle={{
-                color: COLORS.white,
-                ...FONTS.h1,
-                fontSize: 14,
-              }}
-              onPress={() => navigation.navigate("SelectedCar")}
-            />
-          </View>
+            </View>
+            {/* ride info */}
+            <View>
+              <TextIcon
+                icon={<LocationWhite />}
+                title={"Location"}
+                subtitle={"Lagos, Nigeria."}
+              />
+              <TextIcon
+                icon={<ProfileWhite />}
+                title={"Seats"}
+                subtitle={"4"}
+              />
+            </View>
+          </CouponCard>
+
+          <TextButton
+            label={"Lets hit the road"}
+            buttonContainerStyle={{
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: SIZES.radius,
+              marginTop: SIZES.radius * 2,
+            }}
+            labelStyle={{
+              color: COLORS.white,
+              ...FONTS.h1,
+              fontSize: 14,
+            }}
+            onPress={() => navigation.navigate("RidePay")}
+          />
         </View>
-      </View>
+      </CustomBottomSheet>
     );
   }
   return (
