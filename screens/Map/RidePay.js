@@ -14,16 +14,8 @@ import {
 import {
   ArrowLeft,
   CalendarWhite,
-  ChevronRight,
   DistanceWhite,
   Exclamation,
-  Location,
-  LocationGrey,
-  locationPin,
-  LocationWhite,
-  navigator,
-  ProfileGrey,
-  ProfileWhite,
   Star,
 } from "../../assets/icons";
 import { useEffect, useRef } from "react";

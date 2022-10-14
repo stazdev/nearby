@@ -1,17 +1,8 @@
 import * as React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import { StyleSheet, Text, View, Dimensions, StatusBar } from "react-native";
 import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  Platform,
-  StatusBar,
-} from "react-native";
-import {
-  Location,
   LocationGrey,
   locationPin,
   Menu,

@@ -105,7 +105,7 @@ function CustomDrawer({ navigation }) {
           icon={<Bookmark />}
           isFocused={selectedTab == "Driving"}
           onPress={() => {
-            setSelectedTab("Driving"), navigation.navigate("Map");
+            setSelectedTab("Driving"), navigation.navigate("DrivingHistory");
           }}
         />
         <CustomDrawerItem

@@ -7,20 +7,19 @@ import { Commercial, DiscountWhite, WalletWhite } from "../../assets/icons";
 const messages = [
   {
     id: 1,
-    message: "Promo 40% Discount for special day with promocode FRIDAY40",
+    message: "40% Discount for special day with promocode FRIDAY40",
     time: "02/09/2020",
     type: "promotion",
   },
   {
     id: 2,
-    message: "Promo 40% Discount for special day with promocode FRIDAY40",
+    message: "40% Discount for special day with promocode FRIDAY40",
     time: "02/09/2020",
     type: "promotion",
   },
   {
     id: 3,
-    message:
-      "The system will have a maintenance for a several hour in this day",
+    message: "There will be a system maintenance",
     time: "02/09/2020",
     type: "announcement",
   },

@@ -6,6 +6,7 @@ import SelectedCar from "./Map/SelectedCar";
 import RidePay from "./Map/RidePay";
 import PaymentConfirmation from "./Map/PaymentConfirmation";
 import Messages from "./Messages/Messages";
+import DrivingHistory from "./History/DrivingHistory";
 
 export {
   Signin,
@@ -16,4 +17,5 @@ export {
   RidePay,
   PaymentConfirmation,
   Messages,
+  DrivingHistory,
 };

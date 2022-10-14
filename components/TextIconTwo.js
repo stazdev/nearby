@@ -13,6 +13,7 @@ const TextIconTwo = ({
   rightText,
   iconStyle,
   leftStyle,
+  descriptionStyle,
 }) => {
   return (
     <TouchableOpacity
@@ -40,7 +41,9 @@ const TextIconTwo = ({
           icon={icon}
         />
         <View style={{ marginLeft: SIZES.padding }}>
-          <Text style={{ color: COLORS.primary, ...FONTS.h6 }}>
+          <Text
+            style={{ color: COLORS.primary, ...FONTS.h5, ...descriptionStyle }}
+          >
             {description}
           </Text>
           <Text style={{ color: COLORS.grey4, ...FONTS.h6, ...timeStyle }}>
