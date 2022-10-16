@@ -3,6 +3,8 @@ import React from "react";
 import { COLORS, FONTS, SIZES } from "../constants";
 
 const FormInput = ({
+  label,
+  errMsg,
   containerStyle,
   value = "",
   placeholder,
@@ -19,6 +21,16 @@ const FormInput = ({
 }) => {
   return (
     <View style={{ ...containerStyle }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginVertical: SIZES.base,
+        }}
+      >
+        <Text style={{ color: COLORS.gray7, ...FONTS.h5 }}>{label}</Text>
+        <Text style={{ color: COLORS.red, ...FONTS.h6 }}>{errMsg}</Text>
+      </View>
       <View
         style={{
           flexDirection: "row",
