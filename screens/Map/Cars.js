@@ -242,7 +242,7 @@ export default function Cars({ navigation }) {
             />
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => console.log("wallet")}
+              onPress={() => navigation.navigate("Wallet")}
               style={{
                 backgroundColor: COLORS.grey1,
                 height: 60,

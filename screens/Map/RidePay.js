@@ -1,39 +1,18 @@
 import * as React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  Platform,
-  StatusBar,
-  FlatList,
-} from "react-native";
-import {
-  ArrowLeft,
   CalendarWhite,
   DistanceWhite,
   Exclamation,
   Star,
 } from "../../assets/icons";
-import { useEffect, useRef } from "react";
-import { useState } from "react";
 import { COLORS, FONTS, SIZES } from "../../constants";
-import { utils } from "../../utils";
-import {
-  CouponCard,
-  FormInput,
-  IconButton,
-  TextButton,
-  TextIcon,
-} from "../../components";
-import { Avatar, EcoCar, PremiumCar, VisaGreen } from "../../assets/images";
+import { CouponCard, IconButton, TextButton, TextIcon } from "../../components";
+import { Avatar } from "../../assets/images";
 
 export default function RidePay({ navigation }) {
-  const mapView = useRef();
-
   function renderRidesummary() {
     return (
       <View

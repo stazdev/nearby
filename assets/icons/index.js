@@ -22,6 +22,8 @@ import WalletWhite from "./WalletWhite";
 import DistanceWhite from "./DistanceWhite";
 import CalendarWhite from "./CalendarWhite";
 import Commercial from "./Commercial";
+import DeleteWhite from "./DeleteWhite";
+import VisaWhite from "./VisaWhite";
 const locationPin = require("../images/location_pin.png");
 const navigator = require("../images/navigator.png");
 export {
@@ -49,6 +51,8 @@ export {
   DistanceWhite,
   CalendarWhite,
   Commercial,
+  DeleteWhite,
+  VisaWhite,
   locationPin,
   navigator,
 };

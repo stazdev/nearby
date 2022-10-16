@@ -6,6 +6,7 @@ import TextIconTwo from "./TextIconTwo";
 import CouponCard from "./CouponCard";
 import CustomBottomSheet from "./CustomBottomSheet";
 import Header from "./Header";
+import CustomScroll from "./CustomScroll";
 
 export {
   FormInput,
@@ -16,4 +17,5 @@ export {
   CouponCard,
   CustomBottomSheet,
   Header,
+  CustomScroll,
 };

@@ -113,7 +113,7 @@ function CustomDrawer({ navigation }) {
           icon={<Wallet />}
           isFocused={selectedTab == "Wallet"}
           onPress={() => {
-            setSelectedTab("Wallet"), navigation.navigate("Map");
+            setSelectedTab("Wallet"), navigation.navigate("Wallet");
           }}
         />
         <CustomDrawerItem

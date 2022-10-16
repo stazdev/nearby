@@ -1,25 +1,12 @@
 import * as React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  Platform,
-  StatusBar,
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, View, Dimensions, StatusBar } from "react-native";
 import {
   ArrowLeft,
-  ChevronRight,
-  Location,
-  LocationGrey,
   locationPin,
   LocationWhite,
   navigator,
-  ProfileGrey,
   ProfileWhite,
 } from "../../assets/icons";
 import { useEffect, useRef } from "react";
@@ -29,12 +16,11 @@ import { utils } from "../../utils";
 import {
   CouponCard,
   CustomBottomSheet,
-  FormInput,
   IconButton,
   TextButton,
   TextIcon,
 } from "../../components";
-import { EcoCar, PremiumCar, VisaGreen } from "../../assets/images";
+import { PremiumCar } from "../../assets/images";
 
 export default function SelectedCar({ navigation }) {
   const mapView = useRef();

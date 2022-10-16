@@ -13,6 +13,8 @@ import {
   PaymentConfirmation,
   Messages,
   DrivingHistory,
+  Wallet,
+  AddCard,
 } from "./screens";
 import CustomDrawer from "./navigation/CustomDrawer";
 import { COLORS } from "./constants";
@@ -61,6 +63,8 @@ export default function App() {
           />
           <Drawer.Screen name="Messages" component={Messages} />
           <Drawer.Screen name="DrivingHistory" component={DrivingHistory} />
+          <Drawer.Screen name="Wallet" component={Wallet} />
+          <Drawer.Screen name="AddCard" component={AddCard} />
         </Drawer.Navigator>
       </NavigationContainer>
     </TabProvider>

@@ -7,6 +7,8 @@ import RidePay from "./Map/RidePay";
 import PaymentConfirmation from "./Map/PaymentConfirmation";
 import Messages from "./Messages/Messages";
 import DrivingHistory from "./History/DrivingHistory";
+import Wallet from "./Wallet/Wallet";
+import AddCard from "./Wallet/AddCard";
 
 export {
   Signin,
@@ -18,4 +20,6 @@ export {
   PaymentConfirmation,
   Messages,
   DrivingHistory,
+  Wallet,
+  AddCard,
 };
