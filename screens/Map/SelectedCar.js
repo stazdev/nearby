@@ -24,7 +24,7 @@ import { PremiumCar } from "../../assets/images";
 
 export default function SelectedCar({ navigation }) {
   const mapView = useRef();
-  const snapPoints = React.useMemo(() => ["15%", "30%", "45%", "60%"], []);
+  const snapPoints = React.useMemo(() => ["15%", "30%", "45%", "55%"], []);
   const [region, setRegion] = useState(null);
   const [toLoc, setToLoc] = useState(null);
   const [fromLoc, setFromLoc] = useState(null);

@@ -1,12 +1,24 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { FormInput, TextButton } from "../../components";
 import AuthLayout from "./AuthLayout";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const Signin = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function Login() {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {})
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
 
   return (
     <AuthLayout title={"Welcome Back!"}>
@@ -64,7 +76,7 @@ const Signin = ({ navigation }) => {
             ...FONTS.h1,
             fontSize: 14,
           }}
-          onPress={() => navigation.navigate("Map")}
+          onPress={() => Login()}
         />
 
         <TextButton

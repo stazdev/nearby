@@ -1,5 +1,4 @@
 import { Text, TouchableOpacity, View, StatusBar } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import React, { useContext } from "react";
 import { COLORS, FONTS, SIZES } from "../constants";
 import {
@@ -15,8 +14,8 @@ import {
 } from "../assets/icons";
 import { Avatar } from "../assets/images";
 import { TabContext } from "../context/TabContext";
-
-const Drawer = createDrawerNavigator();
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
   return (
@@ -50,7 +49,7 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
 
 function CustomDrawer({ navigation }) {
   const { selectedTab, setSelectedTab } = useContext(TabContext);
-
+  const { currentUser } = firebase.auth();
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -81,7 +80,7 @@ function CustomDrawer({ navigation }) {
           <Avatar />
           <View style={{ marginLeft: SIZES.padding }}>
             <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
-              Azeez Shola
+              {currentUser.displayName}
             </Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Star />
@@ -153,7 +152,11 @@ function CustomDrawer({ navigation }) {
             setSelectedTab("Settings"), navigation.navigate("Map");
           }}
         />
-        <CustomDrawerItem label={"Log Out"} icon={<Logout />} />
+        <CustomDrawerItem
+          label={"Log Out"}
+          icon={<Logout />}
+          onPress={() => firebase.auth().signOut()}
+        />
       </View>
     </View>
   );
