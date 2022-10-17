@@ -5,13 +5,9 @@ import BottomSheet from "@gorhom/bottom-sheet";
 const CustomBottomSheet = ({ children, snapPoints }) => {
   // ref
   const bottomSheetRef = useRef(null);
-
-  // variables
-
-  // callbacks
-  const handleSheetChanges = useCallback((index) => {
-    console.log("handleSheetChanges", index);
-  }, []);
+  // const handleSheetChanges = useCallback((index) => {
+  //   console.log("handleSheetChanges", index);
+  // }, []);
 
   // renders
   return (
@@ -19,7 +15,7 @@ const CustomBottomSheet = ({ children, snapPoints }) => {
       ref={bottomSheetRef}
       index={1}
       snapPoints={snapPoints}
-      onChange={handleSheetChanges}
+      // onChange={handleSheetChanges}
       animateOnMount={true}
     >
       {children}
