@@ -13,6 +13,7 @@ const FormInput = ({
   prependComponent,
   appendComponent,
   onChange,
+  onBlur,
   secureTextEntry,
   keyboardType = "default",
   autoCompleteType = "off",
@@ -57,6 +58,7 @@ const FormInput = ({
           autoCompleteType={autoCompleteType}
           autoCapitalize={autoCapitalize}
           onChangeText={(text) => onChange(text)}
+          onBlur={onBlur}
         />
         {appendComponent}
       </View>
